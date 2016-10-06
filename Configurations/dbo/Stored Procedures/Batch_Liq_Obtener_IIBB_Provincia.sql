@@ -1,0 +1,1 @@
+﻿CREATE PROCEDURE [dbo].[Batch_Liq_Obtener_IIBB_Provincia] AS SET NOCOUNT ON;

@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Configurations</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{545d891c-cc8c-4e46-aa40-1f394ad18d53}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Configurations</RootNamespace>
+    <AssemblyName>Configurations</AssemblyName>
+    <ModelCollation>3082,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Modern_Spanish_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Notificacion.sql" />
+    <Build Include="dbo\Tables\Configuracion_Conciliacion.sql" />
+    <Build Include="dbo\Tables\Detalle_Archivo.sql" />
+    <Build Include="dbo\Tables\Contacto_Cuenta.sql" />
+    <Build Include="dbo\Tables\item_facturacion_BKP.sql" />
+    <Build Include="dbo\Tables\Notificacion_Parametro.sql" />
+    <Build Include="dbo\Tables\Item_Facturacion.sql" />
+    <Build Include="dbo\Tables\Notificacion_Recibida.sql" />
+    <Build Include="dbo\Tables\Info_archivo_abm_cuenta_Tmp.sql" />
+    <Build Include="dbo\Tables\Control_Liquidacion_Disponible.sql" />
+    <Build Include="dbo\Tables\Contracargos_tmp.sql" />
+    <Build Include="dbo\Tables\Operador_Celular.sql" />
+    <Build Include="dbo\Tables\Archivo_Disponible_tmp.sql" />
+    <Build Include="dbo\Tables\Cuenta.sql" />
+    <Build Include="dbo\Tables\Archivo_abm_cuenta.sql" />
+    <Build Include="dbo\Tables\Operatoria_MP_Cuenta.sql" />
+    <Build Include="dbo\Tables\Cuenta_Virtual.sql" />
+    <Build Include="dbo\Tables\Padron_Alto_Riesgo_Fiscal.sql" />
+    <Build Include="dbo\Tables\Archivo_DisponibleLiquidacion_tmp.sql" />
+    <Build Include="dbo\Tables\CUIT_Condicionado.sql" />
+    <Build Include="dbo\Tables\Padron_Grandes_Contribuyentes.sql" />
+    <Build Include="dbo\Tables\Ajuste_Amex.sql" />
+    <Build Include="dbo\Tables\Detalle_archivo_abm_cuenta_tmp.sql" />
+    <Build Include="dbo\Tables\cuit_multicuenta.sql" />
+    <Build Include="dbo\Tables\Padron_Mensual_Rentas.sql" />
+    <Build Include="dbo\Tables\Dato_Pendiente.sql" />
+    <Build Include="dbo\Tables\Padron_Regimen_Simplificado.sql" />
+    <Build Include="dbo\Tables\archivo_distribucion_medio_pago_tmp.sql" />
+    <Build Include="dbo\Tables\Detalle_Analisis_De_Saldo.sql" />
+    <Build Include="dbo\Tables\Parametro.sql" />
+    <Build Include="dbo\Tables\Solicitante_Cuenta.sql" />
+    <Build Include="dbo\Tables\Detalle_Facturacion.sql" />
+    <Build Include="dbo\Tables\Parametro_Cuenta.sql" />
+    <Build Include="dbo\Tables\Distribucion_tmp.sql" />
+    <Build Include="dbo\Tables\Disputa.sql" />
+    <Build Include="dbo\Tables\Paso_Proceso.sql" />
+    <Build Include="dbo\Tables\Disponible_control_tmp.sql" />
+    <Build Include="dbo\Tables\Plan.sql" />
+    <Build Include="dbo\Tables\Doc_Disputa.sql" />
+    <Build Include="dbo\Tables\Log_Proceso_BKP.sql" />
+    <Build Include="dbo\Tables\Plazo_Liberacion.sql" />
+    <Build Include="dbo\Tables\Log_Proceso.sql" />
+    <Build Include="dbo\Tables\Doc_Situacion_Fiscal_Cuenta.sql" />
+    <Build Include="dbo\Tables\Modelo_Dispositivo_MPos.sql" />
+    <Build Include="dbo\Tables\Documento_Por_Tipo.sql" />
+    <Build Include="dbo\Tables\Domicilio_Cuenta.sql" />
+    <Build Include="dbo\Tables\Pregunta_Seguridad.sql" />
+    <Build Include="dbo\Tables\Solicitud_Dispositivo_MPos.sql" />
+    <Build Include="dbo\Tables\Log_paso_Proceso_BKP.sql" />
+    <Build Include="dbo\Tables\Impuesto_Amex.sql" />
+    <Build Include="dbo\Tables\Estado.sql" />
+    <Build Include="dbo\Tables\Log_Paso_Proceso.sql" />
+    <Build Include="dbo\Tables\Primera_Vez_Banco_Cuenta.sql" />
+    <Build Include="dbo\Tables\Estado_Movimiento_MP.sql" />
+    <Build Include="dbo\Tables\Procesar_Facturacion_tmp.sql" />
+    <Build Include="dbo\Tables\Feriados.sql" />
+    <Build Include="dbo\Tables\Proceso.sql" />
+    <Build Include="dbo\Tables\Log_Movimiento_Cuenta_Virtual.sql" />
+    <Build Include="dbo\Tables\Fuente_Boton.sql" />
+    <Build Include="dbo\Tables\Promocion.sql" />
+    <Build Include="dbo\Tables\Grupo_Estado.sql" />
+    <Build Include="dbo\Tables\Promocion_Medio_Pago.sql" />
+    <Build Include="dbo\Tables\Grupo_Motivo.sql" />
+    <Build Include="dbo\Tables\Promocion_Medio_Pago_Banco.sql" />
+    <Build Include="dbo\Tables\Grupo_Notificacion.sql" />
+    <Build Include="dbo\Tables\Distribucion.sql" />
+    <Build Include="dbo\Tables\Provincia.sql" />
+    <Build Include="dbo\Tables\Grupo_Tipo.sql" />
+    <Build Include="dbo\Tables\Rango_BIN.sql" />
+    <Build Include="dbo\Tables\Impuesto.sql" />
+    <Build Include="dbo\Tables\Regla_Bonificacion.sql" />
+    <Build Include="dbo\Tables\Impuesto_bkp.sql" />
+    <Build Include="dbo\Tables\Impuesto_General_MP.sql" />
+    <Build Include="dbo\Tables\Regla_Operacion.sql" />
+    <Build Include="dbo\Tables\Impuesto_Por_Tipo.sql" />
+    <Build Include="dbo\Tables\Regla_Promocion.sql" />
+    <Build Include="dbo\Tables\Impuesto_Por_Tipo_bkp.sql" />
+    <Build Include="dbo\Tables\Relacion_Banco_CU.sql" />
+    <Build Include="dbo\Tables\Inconsistencia_En_Transaccion.sql" />
+    <Build Include="dbo\Tables\Resolutor_Transaccion.sql" />
+    <Build Include="dbo\Tables\Informacion_Bancaria_Cuenta.sql" />
+    <Build Include="dbo\Tables\Resumen_Analisis_De_Saldo.sql" />
+    <Build Include="dbo\Tables\Retiro_Dinero.sql" />
+    <Build Include="dbo\Tables\Item_Facturacion_tmp.sql" />
+    <Build Include="dbo\Tables\movimientos_conciliados.sql" />
+    <Build Include="dbo\Tables\Retiro_Dinero_Base24.sql" />
+    <Build Include="dbo\Tables\Limite.sql" />
+    <Build Include="dbo\Tables\Rubro.sql" />
+    <Build Include="dbo\Tables\Motivo_Conciliacion_Manual.sql" />
+    <Build Include="dbo\Tables\Saldo_De_Cuenta_Tmp.sql" />
+    <Build Include="dbo\Tables\Impuesto_Por_Transaccion.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_CBU.sql" />
+    <Build Include="dbo\Tables\Movimientos_a_Conciliar_tmp.sql" />
+    <Build Include="dbo\Tables\Site_Transaccion.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_Clave.sql" />
+    <Build Include="dbo\Tables\Transacciones_Conciliacion_tmp.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_CUIT.sql" />
+    <Build Include="dbo\Tables\Tamanio_Boton.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_Domicilio.sql" />
+    <Build Include="dbo\Tables\movimientos_conciliados_tmp.sql" />
+    <Build Include="dbo\Tables\Tasa_MP.sql" />
+    <Build Include="dbo\Tables\Movimientos_conciliados_manual_tmp.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_Identificacion.sql" />
+    <Build Include="dbo\Tables\Tipo.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_Mail.sql" />
+    <Build Include="dbo\Tables\Tipo_Cambio_Pendiente.sql" />
+    <Build Include="dbo\Tables\Accion_Limite.sql" />
+    <Build Include="dbo\Tables\Notificacion_Enviada.sql" />
+    <Build Include="dbo\Tables\Lista_Negra_Telefono.sql" />
+    <Build Include="dbo\Tables\Tipo_Cargo.sql" />
+    <Build Include="dbo\Tables\ACL_BANCO.sql" />
+    <Build Include="dbo\Tables\Listado_Actividades_AFIP_v1.1.sql" />
+    <Build Include="dbo\Tables\Tipo_Cargo_bkp.sql" />
+    <Build Include="dbo\Tables\Localidad.sql" />
+    <Build Include="dbo\Tables\Actividad_AFIP.sql" />
+    <Build Include="dbo\Tables\Tipo_Comprobante_Facturacion.sql" />
+    <Build Include="dbo\Tables\Log_Control_Liquidacion_Disponible.sql" />
+    <Build Include="dbo\Tables\Actividad_Cuenta.sql" />
+    <Build Include="dbo\Tables\Tipo_Dato_Pendiente_Cuenta.sql" />
+    <Build Include="dbo\Tables\Cupones_tmp.sql" />
+    <Build Include="dbo\Tables\Actividad_MP_Cuenta.sql" />
+    <Build Include="dbo\Tables\Tipo_Facturacion.sql" />
+    <Build Include="dbo\Tables\Actividad_Transaccional_Cuenta.sql" />
+    <Build Include="dbo\Tables\Tipo_Medio_Pago.sql" />
+    <Build Include="dbo\Tables\Log_Registracion_CBU.sql" />
+    <Build Include="dbo\Tables\archivo_distribucion_medio_pago.sql" />
+    <Build Include="dbo\Tables\Acumulador_Promociones.sql" />
+    <Build Include="dbo\Tables\Tipo_Parametro.sql" />
+    <Build Include="dbo\Tables\Log_TyC_Cuenta.sql" />
+    <Build Include="dbo\Tables\TransaccionesMedioPago_tmp.sql" />
+    <Build Include="dbo\Tables\Ajuste.sql" />
+    <Build Include="dbo\Tables\PreConciliacion.sql" />
+    <Build Include="dbo\Tables\Tipo_Transaccion.sql" />
+    <Build Include="dbo\Tables\Mail_Grupo_Notificacion_Cuenta.sql" />
+    <Build Include="dbo\Tables\Disponible_control_txs_tmp.sql" />
+    <Build Include="dbo\Tables\Analisis_Saldos_Tmp.sql" />
+    <Build Include="dbo\Tables\PreConciliacion_Manual.sql" />
+    <Build Include="dbo\Tables\TyC.sql" />
+    <Build Include="dbo\Tables\Mail_Notificacion.sql" />
+    <Build Include="dbo\Tables\Apariencia_Boton.sql" />
+    <Build Include="dbo\Tables\medios_de_pago_a_distribuir.sql" />
+    <Build Include="dbo\Tables\Movimiento_Presentado_Decidir.sql" />
+    <Build Include="dbo\Tables\Usuario_Cuenta.sql" />
+    <Build Include="dbo\Tables\Medio_De_Pago.sql" />
+    <Build Include="dbo\Tables\Banco.sql" />
+    <Build Include="dbo\Tables\Vertical_Cybersource.sql" />
+    <Build Include="dbo\Tables\Bin_Banco_Medio_Pago.sql" />
+    <Build Include="dbo\Tables\Acumulador_Promociones_bkp.sql" />
+    <Build Include="dbo\Tables\Medio_Pago_Banco.sql" />
+    <Build Include="dbo\Tables\Volumen_Regla_Promocion.sql" />
+    <Build Include="dbo\Tables\Notificaciones_tmp.sql" />
+    <Build Include="dbo\Tables\Boton.sql" />
+    <Build Include="dbo\Tables\Medio_Pago_Boton.sql" />
+    <Build Include="dbo\Tables\Bonificacion.sql" />
+    <Build Include="dbo\Tables\vuelta_facturacion.sql" />
+    <Build Include="dbo\Tables\Cambio_Pendiente.sql" />
+    <Build Include="dbo\Tables\vuelta_facturacion2.sql" />
+    <Build Include="dbo\Tables\Medio_Pago_Cuenta.sql" />
+    <Build Include="dbo\Tables\Canal_Adhesion.sql" />
+    <Build Include="dbo\Tables\Medio_Pago_Transaccion.sql" />
+    <Build Include="dbo\Tables\Cargo.sql" />
+    <Build Include="dbo\Tables\Mensaje.sql" />
+    <Build Include="dbo\Tables\Promocion_Comprador.sql" />
+    <Build Include="dbo\Tables\Cargo_Cuenta.sql" />
+    <Build Include="dbo\Tables\Moneda.sql" />
+    <Build Include="dbo\Tables\cargo_cuenta_BKP.sql" />
+    <Build Include="dbo\Tables\Moneda_Medio_Pago.sql" />
+    <Build Include="dbo\Tables\Promocion_Primera_Adhesion.sql" />
+    <Build Include="dbo\Tables\Cargos_Por_Transaccion.sql" />
+    <Build Include="dbo\Tables\vista_iibb.sql" />
+    <Build Include="dbo\Tables\Situacion_Fiscal_Cuenta.sql" />
+    <Build Include="dbo\Tables\Motivo.sql" />
+    <Build Include="dbo\Tables\Ciclo_Facturacion.sql" />
+    <Build Include="dbo\Tables\Motivo_Ajuste.sql" />
+    <Build Include="dbo\Tables\Cliente_Unico_Relacion.sql" />
+    <Build Include="dbo\Tables\Motivo_Estado.sql" />
+    <Build Include="dbo\Tables\Codigo_Operacion.sql" />
+    <Build Include="dbo\Tables\Codigo_Operacion_Medio_Pago.sql" />
+    <Build Include="dbo\Tables\Movimiento_Presentado_MP.sql" />
+    <Build Include="dbo\Tables\Codigo_Respuesta_Resolutor.sql" />
+    <Build Include="dbo\Tables\Acumulador_Impuesto.sql" />
+    <Build Include="dbo\Tables\Nivel_Detalle_Log_Proceso.sql" />
+    <Build Include="dbo\Tables\Disponible_Detalle_Tmp.sql" />
+    <Build Include="dbo\Tables\Color_Boton.sql" />
+    <Build Include="dbo\Tables\Liquidacion_Tmp.sql" />
+    <Build Include="dbo\Tables\Movimientos_a_distribuir.sql" />
+    <Build Include="dbo\Tables\Disponible_Por_Cuenta_Tmp.sql" />
+    <Build Include="dbo\Tables\Movimientos_Detalle.sql" />
+    <Build Include="dbo\Tables\Comercio_Prisma_Aux.sql" />
+    <Build Include="dbo\Tables\Jurisdiccion_IIBB.sql" />
+    <Build Include="dbo\Tables\Detalle_Log_Proceso.sql" />
+    <Build Include="dbo\Tables\Comercio_Prisma_Baja.sql" />
+    <Build Include="dbo\Tables\Nacionalidad.sql" />
+    <Build Include="dbo\Tables\Conciliacion.sql" />
+    <Build Include="dbo\Tables\Impuesto_Por_Jurisdiccion_IIBB.sql" />
+    <Build Include="dbo\Tables\Archivo_Conciliacion.sql" />
+    <Build Include="dbo\Tables\Nivel_Riesgo_MP.sql" />
+    <Build Include="dbo\Tables\Conciliacion_Manual.sql" />
+    <Build Include="dbo\Tables\Configuracion_Log_Proceso.sql" />
+    <Build Include="dbo\Functions\Split.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Obtener_Totales_Por_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Obtener_Movimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_ABMCuentas_Parse.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Borrar_Antiguos.sql" />
+    <Build Include="dbo\Stored Procedures\Obtener_cupones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Control_Liquidacion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Actualizar_Saldo.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_Archivo.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Actividad_TX_Cuenta_Vendedora.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Actualizar_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_ABMCuentas_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_ArchivoError.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Disponible_ArchivoLiquidacion.sql" />
+    <Build Include="dbo\Stored Procedures\Actualizar_Cargos_Por_Transaccion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarVisaImpuestos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarVisa.sql" />
+    <Build Include="dbo\Stored Procedures\Actualizar_Cuenta_Virtual.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarVisaMovimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Actualizar_Cuenta_Virtual_Control_Barrido.sql" />
+    <Build Include="dbo\Stored Procedures\Actualizar_FlagFacturacion_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Actualizar_procesados.sql" />
+    <Build Include="dbo\Stored Procedures\Analizar_Saldos_Por_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Actividad_TX_Cuenta_Compradora.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Actualizar_Control_Liquidacion_Disponible.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Actualizar_Acumulador_Promociones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Actualizar_Acumulador_Promociones_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Actualizar_Saldo_En_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Actualizar_Saldo_En_Cuenta_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Cargos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarFirstData.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Cargos_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Fecha_Cashout.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Fecha_Cashout_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Fecha_Tope_Presentacion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Macheo_Transacciones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Fecha_Tope_Presentacion_old.sql" />
+    <Build Include="dbo\Stored Procedures\GenerarId.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos_IVA_Cargos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos_IVA_Cargos_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Detallar_Cargos_Devolucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Detalle.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Detallar_Cargos_Devolucion_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Detallar_Impuestos_Devolucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Detallar_Impuestos_Devolucion_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_Cargos_Por_Devolucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_Cargos_Por_Devolucion_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_Transacciones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_Transacciones_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Rollback_old.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_VueltaFacturacion_Actualizar.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_VueltaFacturacion_CalcularAjuste.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_VueltaFacturacion_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Obtener_cupones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_VueltaFacturacion_ObtenerRegistros.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Obtener_Movimientos_A_Distribuir.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_VueltaFacturacion_Validaciones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Obtener_Dato_de_Log.sql" />
+    <Build Include="dbo\Stored Procedures\Facturacion_Actualizar_Procesados.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Movimientos_Conciliacion_Manual.sql" />
+    <Build Include="dbo\Stored Procedures\Facturacion_Calcular_Compras.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Movimiento_Rechazado.sql" />
+    <Build Include="dbo\Stored Procedures\Facturacion_Calcular_Dev.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Conciliar_Movimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Facturacion_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Conciliar_Manual.sql" />
+    <Build Include="dbo\Stored Procedures\Finalizar_Log_Paso_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Actualizar_Flag_Impuestos.sql" />
+    <Build Include="dbo\Stored Procedures\Finalizar_Log_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Iniciar_Log_Paso_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Actualizar_distribucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF2.sql" />
+    <Build Include="dbo\Stored Procedures\Iniciar_Log_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Actualizar_Cupones.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ObtenerMovimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Actualizar_Conciliacion_Manual.sql" />
+    <Build Include="dbo\Stored Procedures\Insertar_CUIT_LN.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarCabal.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Concil_Resultado_WScontracargo.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_MacheoMovimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Medios_Vencidos.sql" />
+    <Build Include="dbo\Stored Procedures\Saldos_Detallar_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Saldos_Generar_Analisis_Detallado.sql" />
+    <Build Include="dbo\Stored Procedures\Saldos_Generar_Analisis_Resumido.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_InsertarMovimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Saldos_Impactar_Movimientos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarAmex.sql" />
+    <Build Include="dbo\Stored Procedures\Saldos_Resumir_Cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GenerarCredencialesPruebas.sql" />
+    <Build Include="dbo\Stored Procedures\sp_ProcesarCuentas_VueltaFacturacion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF3.sql" />
+    <Build Include="dbo\Stored Procedures\SP_Registrar_Ajuste.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ObtenerMovimientosCM.sql" />
+    <Build Include="dbo\Stored Procedures\sp_searchlocks.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ConciliacionManual.sql" />
+    <Build Include="dbo\Stored Procedures\w_Actualizar_Cuenta_Virtual.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF9.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF4.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ObtenerMovimientosAdistribuir.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ActualizarFlagImpuestos.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Iniciar_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF10.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Iniciar_Paso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Finalizar_Proceso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Finalizar_Paso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_AltaCuentas_Parseo.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Borrar_Historico.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Log_Actualizar_Paso.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Actualizacion_estado_cupon.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Actualizacion_estado_cuenta.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Generacion_Arch_Disp_ObtenerCuentas.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_GenerarDatosDistribucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_RF5.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ActualizarDistribucion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Generacion_Arch_Disp_ActualizarTxs.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Generacion_Arch_Disp_ObtenerImportesLiquidacion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_PreConcil_Preconciliar_Movimiento.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_PreConcil_PreConciliar.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ResultadoWScontracargo.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_ValidarRapipago.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_PreConcil_PreConciliacion_Manual.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Conciliacion_Main.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Actualizar_Acumulador_Impuestos.sql" />
+    <Build Include="dbo\Stored Procedures\Calcular_Ciclo_Facturacion.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_IIBB_Provincia.sql" />
+    <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos_IIBB_Cargos.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1 @@
+﻿CREATE PROCEDURE [dbo].[Batch_Liq_Calcular_Impuestos_IIBB_Cargos] AS SET NOCOUNT ON;
