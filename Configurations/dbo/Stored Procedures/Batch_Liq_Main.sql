@@ -1,5 +1,31 @@
-﻿
-  
+﻿/*
+	Todo Pago
+	Proceso de Liquidacion
+
+	Procedimiento: [Batch_Liq_Main]
+	Descripcion:
+				Realizar la liquidación de movimientos a las Cuentas 
+				que estén adheridas al servicio Todo Pago
+
+				•	Cálculo y registración de Cargos 
+				•	Cálculo y registración de Impuestos
+				•	Cálculo y registración de Fecha de liberación de cash out
+				•	Cálculo y registración de Fecha tope de presentación
+				•	Actualización del estado
+				•	Actualización del saldo en cuenta
+
+	Modificaciones:
+		07/10/2016 - Alberto Martins - se debe agregar a la Tabla Impuesto_Por_Transaccion 
+			los siguientes datos de la TX:
+ 
+			providerTransactionID, 
+			createTimestamp, 
+			saleConcept, 
+			credencialEmailAddress, 
+			amount y feeAmount.
+
+  */
+
 CREATE PROCEDURE [dbo].[Batch_Liq_Main] (@Usuario VARCHAR(20))  
 AS  
 DECLARE @id_log_proceso INT;  
@@ -30,6 +56,9 @@ DECLARE @fecha_de_cashout DATE;
 DECLARE @id_codigo_operacion INT;  
 DECLARE @registros_afectados INT;  
 DECLARE @TransactionStatus VARCHAR(20);  
+DECLARE @ProviderTransactionID VARCHAR (64);      
+DECLARE @SaleConcept VARCHAR (255);                
+DECLARE @CredentialEmailAddress VARCHAR (64);     
   
 BEGIN  
  SET NOCOUNT ON;  
@@ -78,6 +107,10 @@ BEGIN
      ,@PromotionIdentification = tmp.PromotionIdentification  
      ,@ButtonCode = tmp.ButtonCode  
      ,@TransactionStatus = tmp.TransactionStatus  
+	 ,@ProviderTransactionID = tmp.ProviderTransactionID      
+	 ,@SaleConcept = tmp.SaleConcept                
+	 ,@CredentialEmailAddress = tmp.CredentialEmailAddress     
+
     FROM Configurations.dbo.Liquidacion_Tmp tmp  
     WHERE tmp.i = @tx_i;  
   
@@ -178,6 +211,10 @@ BEGIN
       ,@CreateTimestamp  
       ,@LocationIdentification  
       ,@Usuario  
+	  ,@ProviderTransactionID      
+	  ,@SaleConcept                
+	  ,@CredentialEmailAddress     
+	  ,@FeeAmount                  
       ,@TaxAmount OUTPUT;  
   
      IF (@flag_ok = 0)  
@@ -388,7 +425,7 @@ BEGIN
     -- SI HAY ERROR, lanzar excepción para deshacer las modificaciones  
     IF (@flag_ok = 0)  
     BEGIN  
-     THROW 51000  
+     ;THROW 51000  
       ,'Error procesando la Transacción'  
       ,1;  
     END;  

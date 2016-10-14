@@ -9,6 +9,10 @@ CREATE PROCEDURE [dbo].[Batch_Liq_Calcular_Impuestos] (
  ,@idTipoMovimientoDebito INT
  ,@idTipoOrigenMovimiento INT
  ,@idLogProceso INT
+ --,@ProviderTransactionID            VARCHAR (64)    NULL
+ ,@SaleConcept                      VARCHAR (255)   NULL
+ ,@CredentialEmailAddress           VARCHAR (64)    NULL
+ ,@FeeAmount                        DECIMAL (12, 2) NULL
  ,@TaxAmount DECIMAL(12, 2) OUTPUT
  )
 AS
@@ -39,6 +43,12 @@ DECLARE @Impuestos_Por_TX TABLE (
  ,monto_calculado DECIMAL(12, 2)
  ,alicuota DECIMAL(12, 2)
  ,aplica_acumulacion BIT
+ ,ProviderTransactionID            VARCHAR (64)    NULL
+ ,CreateTimestamp                  DATETIME        NULL
+ ,SaleConcept                      VARCHAR (255)   NULL
+ ,CredentialEmailAddress           VARCHAR (64)    NULL
+ ,Amount                           DECIMAL (12, 2) NULL
+ ,FeeAmount                        DECIMAL (12, 2) NULL
  );
 DECLARE @i INT;
 DECLARE @j INT;
@@ -121,7 +131,7 @@ BEGIN
 
   IF (@ret_code = 0)
   BEGIN
-   THROW 51000
+   ;THROW 51000
     ,'Error en SP - Batch_Liq_Obtener_IIBB_Provincia'
     ,1;
   END;
@@ -248,7 +258,7 @@ BEGIN
 
      IF (@ret_code = 0)
      BEGIN
-      THROW 51000
+      ;THROW 51000
        ,'Error en SP - Batch_Liq_Calcular_Impuestos_IVA_Cargos'
        ,1;
      END
@@ -261,6 +271,12 @@ BEGIN
        ,monto_calculado
        ,alicuota
        ,aplica_acumulacion
+	   ,ProviderTransactionID 
+	   ,CreateTimestamp       
+	   ,SaleConcept           
+	   ,CredentialEmailAddress
+	   ,Amount                
+	   ,FeeAmount             
        )
       VALUES (
        @id_cargo
@@ -268,6 +284,12 @@ BEGIN
        ,@monto_calculado_impuesto
        ,@alicuota
        ,@aplica_acumulacion
+	   ,0--@ProviderTransactionID 
+	   ,@CreateTimestamp       
+	   ,@SaleConcept           
+	   ,@CredentialEmailAddress
+	   ,@Amount                
+	   ,@FeeAmount             
        )
      END;
     END;--3
@@ -376,7 +398,7 @@ BEGIN
 
       IF (@ret_code = 0)
       BEGIN
-       THROW 51000
+       ;THROW 51000
         ,'Error en SP - Calcular_Ciclo_Facturacion'
         ,1;
       END;
@@ -399,7 +421,7 @@ BEGIN
 
      IF (@ret_code = 0)
      BEGIN
-      THROW 51000
+      ;THROW 51000
        ,'Error en SP - Batch_Liq_Actualizar_Acumulador_Impuestos'
        ,1;
      END;
@@ -423,7 +445,7 @@ BEGIN
 
       IF (@ret_code = 0)
       BEGIN
-       THROW 51000
+       ;THROW 51000
         ,'Error en SP - Ajustes_Nuevo_Ajuste'
         ,1;
       END;
@@ -463,6 +485,12 @@ BEGIN
    ,fecha_alta
    ,usuario_alta
    ,version
+   ,ProviderTransactionID
+   ,CreateTimestamp
+   ,SaleConcept
+   ,CredentialEmailAddress
+   ,Amount
+   ,FeeAmount
    )
   SELECT @Id
    ,ipx.id_cargo
@@ -472,6 +500,13 @@ BEGIN
    ,GETDATE()
    ,@Usuario
    ,0
+   ,ProviderTransactionID 
+   ,CreateTimestamp       
+   ,SaleConcept           
+   ,CredentialEmailAddress
+   ,Amount                
+   ,FeeAmount             
+
   FROM @Impuestos_Por_TX ipx;
 
   SELECT @TaxAmount = ISNULL(SUM(monto_calculado), 0)
