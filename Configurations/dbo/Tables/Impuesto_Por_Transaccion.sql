@@ -12,6 +12,14 @@
     [fecha_baja]                  DATETIME        NULL,
     [usuario_baja]                VARCHAR (20)    NULL,
     [version]                     INT             NOT NULL,
+    [ProviderTransactionID]       VARCHAR (64)    NULL,
+    [CreateTimestamp]             DATETIME        NULL,
+    [SaleConcept]                 VARCHAR (255)   NULL,
+    [CredentialEmailAddress]      VARCHAR (64)    NULL,
+    [Amount]                      DECIMAL (12, 2) NULL,
+    [FeeAmount]                   DECIMAL (12, 2) NULL,
     CONSTRAINT [PK_Impuesto_Por_Transaccion] PRIMARY KEY CLUSTERED ([id_impuesto_por_transaccion] ASC) WITH (FILLFACTOR = 80)
 );
+
+
 

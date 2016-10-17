@@ -23,6 +23,11 @@
     [CredentialDocumentType]     VARCHAR (36)    NULL,
     [CredentialDocumentNumber]   VARCHAR (24)    NULL,
     [CredentialMask]             VARCHAR (20)    NULL,
+    [ProviderTransactionID]      VARCHAR (64)    NULL,
+    [SaleConcept]                VARCHAR (255)   NULL,
+    [CredentialEmailAddress]     VARCHAR (64)    NULL,
     CONSTRAINT [PK_Liquidacion_Tmp] PRIMARY KEY CLUSTERED ([I] ASC)
 );
+
+
 
