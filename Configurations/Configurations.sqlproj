@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{545d891c-cc8c-4e46-aa40-1f394ad18d53}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -394,5 +394,8 @@
     <Build Include="dbo\Stored Procedures\Calcular_Ciclo_Facturacion.sql" />
     <Build Include="dbo\Stored Procedures\Batch_Liq_Obtener_IIBB_Provincia.sql" />
     <Build Include="dbo\Stored Procedures\Batch_Liq_Calcular_Impuestos_IIBB_Cargos.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Configurations.publish.xml" />
   </ItemGroup>
 </Project>

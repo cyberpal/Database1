@@ -9,10 +9,10 @@ CREATE PROCEDURE [dbo].[Batch_Liq_Calcular_Impuestos] (
  ,@idTipoMovimientoDebito INT
  ,@idTipoOrigenMovimiento INT
  ,@idLogProceso INT
- --,@ProviderTransactionID            VARCHAR (64)    NULL
- ,@SaleConcept                      VARCHAR (255)   NULL
- ,@CredentialEmailAddress           VARCHAR (64)    NULL
- ,@FeeAmount                        DECIMAL (12, 2) NULL
+ ,@ProviderTransactionID            VARCHAR (64)    
+ ,@SaleConcept                      VARCHAR (255)   
+ ,@CredentialEmailAddress           VARCHAR (64)    
+ ,@FeeAmount                        DECIMAL (12, 2) 
  ,@TaxAmount DECIMAL(12, 2) OUTPUT
  )
 AS
